@@ -8,12 +8,12 @@ class vector2d:
         return str([self.a, self.b])
     def __add__(self,other):
         return vector2d(self.a+other.a,self.b+other.b)
-    def __mul__(self,other):
+    def __mul__(self,other): #This is the definition of scalar multiplication, not an dot product or a cross product
         if isinstance(other,int):
             return vector2d(other*self.a, other*self.b)
         elif isinstance(other,vector2d):
             return ("This is undefined")
-    def __rmul__(self,other):
+    def __rmul__(self,other): #This is the definition of scalar multiplication, not an dot product or a cross product
         if isinstance(other,int):
             return vector2d(other*self.a, other*self.b)
         elif isinstance(other,vector2d):
@@ -49,12 +49,12 @@ class vector3d:
         return str([self.a, self.b, self.c])
     def __add__(self,other):
         return vector2d(self.a+other.a,self.b+other.b, other.c+other.c)
-    def __mul__(self,other):
+    def __mul__(self,other): #This is the definition of scalar multiplication, not an dot product or a cross product
         if isinstance(other,int):
             return vector2d(other*self.a, other*self.b, other.c)
         elif isinstance(other,vector2d):
             return ("This is undefined")
-    def __rmul__(self,other):
+    def __rmul__(self,other): #This is the definition of scalar multiplication, not an dot product or a cross product
         if isinstance(other,int):
             return vector2d(other*self.a, other*self.b, other*self.c)
         elif isinstance(other,vector2d):
