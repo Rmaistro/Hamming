@@ -169,3 +169,9 @@ class matrix:
             return True
         else:
             return False
+    def get_element(self, position): #returns the value on a certain position, this ust be give as a tuple
+        return self.lst[position[0]][position[1]]  
+    def change_element(self, position, change): #changes a value, takes position as a tuple with the row and column
+        lijst=self.lst
+        lijst[position[0]][position[1]]=change
+        return(matrix(lijst))
