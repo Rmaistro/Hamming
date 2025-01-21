@@ -99,7 +99,7 @@ def parity(check,Parity_check):
         return 5
     elif answer== matrix([[0],[0],[1]]):
         return 6   
-def correct (a,Parity_chek):
+def correct (a,Parity_check):
     """
     This code correct a 7 bit long code, given as a 7X1-matrix. 
     """
