@@ -175,3 +175,10 @@ class matrix:
         lijst=self.lst
         lijst[position[0]][position[1]]=change
         return(matrix(lijst))
+    def to_string(self):
+        lijst=self.lst
+        total =''
+        for i in range(len(lijst)):
+            for j in range(len(lijst[i])):
+                total +=str(lijst[i][j])
+        return total            
