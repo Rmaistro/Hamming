@@ -24,6 +24,13 @@ Parity_check = matrix([
     [0, 1, 1, 1, 0, 0, 1]
 ])
 
+# Transforms a 7 string "correctly encrypted" code, back to the original nibble.
+Return_matrix = matrix([
+    [1,0,0,0,0,0,0],
+    [0,1,0,0,0,0,0],
+    [0,0,1,0,0,0,0],
+    [0,0,0,1,0,0,0],
+    ])
 
 def encrypt74(message_4, generator_matrix):
     """
@@ -63,21 +70,33 @@ def parity(check,Parity_check):
     elif answer== matrix([[0],[0],[1]]):
         return 6
     
-def correct (a):
+def correct (a,Parity_chek):
     wrong = parity(a,Parity_check)
     if wrong == "None":
         return a
     else:
-        return a.change_element((0,wrong),1)
+        new=a.get_element((wrong,0))^1
+        return a.change_element((wrong,0),new)
 
 # Make it into a 4-bit code again.
-def decrypt74(message_7): 
-    return None
-# All blocks of 8 bits go back to text.
+def decrypt74(corrected, Return): 
+    """
+    Takes a nx1-matrix m. After multiplaction of a matrix with m,
+    the original output is displayed as een 1 x n- matix
+    """
+    return Return*corrected
 def decode(binary_string):
+    """
+    Takes a 8 bit string and returns is to 'normal' text.
+    """
     bytes_string = [binary_string[i:i+8] for i in range(0, len(binary_string), 8)]
     byte_number = [int(byte, 2) for byte in bytes_string]
     text = bytes(byte_number).decode('utf-8')
     return text
-test=correct(matrix([[1,1],0,1,0,0,0]))
-print(correct(test))
+def total_check(a):
+    new=correct(a,Parity_check)
+    original =decrypt74(new,Return_matrix)
+    original_string = list(original).join()
+    return original_string
+x = matrix([[1],[1],[1],[1],[0],[0],[1]])
+print(total_check(x))
