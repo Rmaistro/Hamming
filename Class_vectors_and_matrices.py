@@ -181,4 +181,4 @@ class matrix:
         for i in range(len(lijst)):
             for j in range(len(lijst[i])):
                 total +=str(lijst[i][j])
-        return total            
+        return str(total)            
