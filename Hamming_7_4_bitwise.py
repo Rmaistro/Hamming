@@ -170,6 +170,3 @@ def random_testing(n):
         return"It all seems to work alright: '%s' was correctly transferred!" %(random_text)
     else:
         return "That's not correct, something went wrong..."
-x=text_encryption_displayable("Hello")
-
-print(random_testing(10))
