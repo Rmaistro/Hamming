@@ -171,5 +171,5 @@ def random_testing(n):
     else:
         return "That's not correct, something went wrong..."
 x=text_encryption_displayable("Hello")
-print(x)
-print(text_decryption(x))
+
+print(random_testing(10))
