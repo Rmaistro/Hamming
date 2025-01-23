@@ -4,6 +4,8 @@ import numpy as np
 import random
 import string as rijtje
 import copy
+import time 
+import matplotlib.pyplot as plt
 def text_to_binary(text):
     """
     Transforms every message into a string of binary-code.
@@ -170,3 +172,46 @@ def random_testing(n):
         return"It all seems to work alright: '%s' was correctly transferred!" %(random_text)
     else:
         return "That's not correct, something went wrong..."
+    
+def time_loop(n):
+    i=1
+    total=0
+    while i <=500:
+        starttime=time.time()   
+        random_testing(n)
+        eindtijd=time.time()
+        verstreken_tijd=eindtijd-starttime
+        i+=1
+        total+=verstreken_tijd
+    return total/100
+
+def complexity_analysis():  
+    n_lst = []
+    time_lst = []
+    for i in range(30,330,10):
+        n_lst.append(int(i))
+        time_lst.append(time_loop(int(i)))
+    n_arr = np.array(n_lst)
+    time_arr = np.array(time_lst)
+    
+    time_arr = 1000*time_arr #omzetten van seconden naar milliseconden
+    plt.figure()
+    plt.scatter(n_arr, time_arr)
+    plt.xlabel('Length teststring')
+    plt.ylabel('Time (ms)')
+    plt.title('Complexity of the bitwise implementation')
+    plt.xlim(0, max(n_arr)+10)
+    plt.ylim(0, max(time_arr)+2)
+    plt.show()
+    
+inp = input("Type 'analysis' if you want to perform an complexity analysis, 'encrypt' if you want to encrypt a message or 'decrypt' if you want to decrypt and if needed correct a message: ")
+if inp == 'analysis':
+    complexity_analysis()
+if inp == 'encrypt':
+    text = input('Give the text you want to encrypt here: ')
+    print(text_encryption_displayable(text))
+if inp == 'decrypt':
+    message = input('Give your decrypted message here: ')
+    message = message[2:-2]
+    message_lst = message.split("', '")
+    print(text_decryption(message_lst))
