@@ -1,11 +1,11 @@
 # Hamming
 Hamming (7,4) by Jelle, Nena, Xander
-##What is this
+## What is this?
 This is a schoolproject, made by three students at Utrecht University in the Netherlands.
 It is part of a Programming Course for Mathematics. While writing, are all in our first year of the
 Mathematics Bachelor. We implemented the Hamming (7,4) code and analyzed different
 implementation of the algorithm.
-##Code features
+## Code features:
 Both the ”Hamming 7 4 code.py” (the matrix implementation) and ”Hamming 7 4 bitwise.py”
 (the bitwise implementation) have a print statement that is called, every time one
 runs the document. This block of code can be found on the lines 229-242 and the
@@ -16,7 +16,7 @@ lines 207-220 respectively. The input function gives the following question:
 decrypt and if needed correct a message: ”In other words, there are four choises 
 that the user can make. If a correctly spelledanswer is provided, the program will 
 run the code that, as said in the message, a follow-up question might be presented. 
-## In- and output
+## In- and output:
 With the ”encrypt” function one can convert a string of character into a
 list of seven bit long, secured strings, presented in a list. The ”decrypt” 
 function can change a list, as produced by the "encypt" function back to the original 
@@ -26,6 +26,6 @@ still works, by running the encrypt and decrypt function back to back.
 Further more: it randomly flips a bit in the produced string. 
 With the ”analysis” function the user can initiate 30.000 random checks which are presented
 in a plot in your Python editor "plots"-window.
-##Contribution
+## Contribution:
 Contributions to this project are not (yet) possible since it is a schoolproject, that has yet
 to be grated. 
