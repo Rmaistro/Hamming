@@ -204,14 +204,17 @@ def complexity_analysis():
     plt.ylim(0, max(time_arr)+2)
     plt.show()
     
-inp = input("Type 'analysis' if you want to perform an complexity analysis, 'encrypt' if you want to encrypt a message or 'decrypt' if you want to decrypt and if needed correct a message: ")
+inp = input("Type 'analysis' if you want to perform an complexity analysis, type 'codecheck' if you want to check whether or not the code works, type 'encrypt' if you want to encrypt a message or 'decrypt' if you want to decrypt and if needed correct a message: ")
 if inp == 'analysis':
     complexity_analysis()
-if inp == 'encrypt':
+elif inp == 'encrypt':
     text = input('Give the text you want to encrypt here: ')
     print(text_encryption_displayable(text))
-if inp == 'decrypt':
+elif inp == 'decrypt':
     message = input('Give your decrypted message here: ')
     message = message[2:-2]
     message_lst = message.split("', '")
     print(text_decryption(message_lst))
+elif inp == 'codecheck':
+    n=input("How long should the test string be? Give an positive interger as answer: ")
+    print(random_testing(int(n)))
